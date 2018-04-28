@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CryptoCurrencies</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			.zoom{
+				transition: transform 2s;
+			}
+			.zoom:hover{
+				transform: scale(2);
+			}
+		</style>
+	</head>
+	<body>
+		<h1 align="center">CryptoCurrencies</h1>
+		<div class="container text-center">
+		  <table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th>#</th>
+		        <th>Name</th>
+		        <th>Market Cap</th>
+		        <th>Price</th>
+		        <th>Circulating Supply</th>
+		        <th>Volume(24h)</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	{% for row in rows %}
+			      <tr>
+			        <td>{{row['rank']}}</td>
+			        <td><a href=""><div class="zoom">{{row['name']}}</div></a></td>
+			        <td>&#36;{{row["market_cap_usd"]}}</td>
+			        <td>&#36;{{row['price_usd']}}</td>
+			        <td>{{row['available_supply']}}</td>
+			        <td>&#36;{{row['24h_volume_usd']}}</td>
+			      </tr>
+			    {% endfor %}
+		    </tbody>
+		  </table>
+		</div>
+	</body>
+</html>
